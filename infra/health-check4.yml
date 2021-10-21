@@ -1,0 +1,53 @@
+spec:
+  containers:
+    - name: mycontainer
+      image: myimage
+      env:
+        - name: MY_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: actuator-token
+              key: token
+      livenessProbe:
+        httpGet:
+          path: test/actuator/health
+          port: 9001
+          httpHeaders:
+            - name: Authorization
+              value: $SECRET
+
+
+
+
+spec:
+  containers:
+    - name: mycontainer
+      image: myimage
+      env:
+        - name: TOKEN
+          value: '12345'
+      livenessProbe:
+        httpGet:
+          path: /v1/health
+          port: 80
+          httpHeaders:
+            - name: Authorization
+              value: Apikey $TOKEN
+
+
+
+spec:
+  containers:
+    - name: mycontainer
+      image: myimage
+      env:
+        - name: TOKEN
+          value: '12345'
+      livenessProbe:
+        exec:
+          command:
+            - bash
+            - -c
+            - 'curl --fail http://localhost/v1/health --header "Authorization: Apikey $TOKEN"'
+      initialDelaySeconds: 30
+      periodSeconds: 15

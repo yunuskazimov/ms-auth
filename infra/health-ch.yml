@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ms-auth
+  labels:
+    app: ms-auth
+spec:
+  containers:
+    - name: ms-auth
+      image: yunuskazimov94/ms-auth
+      ports:
+        - containerPort: 8092
