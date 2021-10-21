@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-auth
+  labels:
+    app: ms-auth
+spec:
+  containers:
+    - name: ms-auth
+      image: yunuskazimov94/ms-auth
+      ports:
+        - containerPort: 8092
+      readinessProbe:
+        httpGet:
+          path: /health
+          port: 8092
+        initialDelaySeconds: 10
+        timeoutSeconds: 2
+        periodSeconds: 3
+        failureThreshold: 1
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 8092
+        initialDelaySeconds: 20
+        timeoutSeconds: 2
+        periodSeconds: 8
+        failureThreshold: 1

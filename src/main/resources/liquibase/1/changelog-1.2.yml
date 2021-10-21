@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: addAutoIncrement_to_auth_user
+      author: Yunus Kazimov
+      changes:
+      - addAutoIncrement:
+            columnDataType: int
+            columnName: id
+            generationType: ALWAYS
+            incrementBy: 1
+            schemaName: public
+            tableName: auth_user
