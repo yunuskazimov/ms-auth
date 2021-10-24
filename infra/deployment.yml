@@ -15,7 +15,28 @@ spec:
         app: ms-auth
     spec:
       containers:
-        - name: ms-auth
+        - env:
+            - name: DB_MS_AUTH_URL
+              valueFrom:
+                secretKeyRef:
+                  key: DB_AUTH_URL
+                  name: db-auth
+            - name: DB_MS_AUTH_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: DB_AUTH_USERNAME
+                  name: db-auth
+            - name: DB_MS_AUTH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: DB_AUTH_PASSWORD
+                  name: db-auth
+            - name: MS_AUTH_SERVER_PORT
+              valueFrom:
+                secretKeyRef:
+                  key: SERVER_PORT
+                  name: db-auth
+          name: ms-auth
           image: yunuskazimov94/ms-auth
           ports:
             - containerPort: 8092
