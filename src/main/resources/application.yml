@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://y-postgres-postgresql.development.svc.cluster.local:5432/auth
-    username: postgres
-    password: bHa8Hn9OBm
+    url: ${DB_AUTH_URL}
+    username: ${DB_AUTH_USERNAME}
+    password: ${DB_AUTH_PASSWORD}
   jpa:
     generate-ddl: false
     hibernate:
@@ -15,7 +15,7 @@ spring:
     enabled: true
 
 server:
-  port: 8092
+  port: ${SERVER_PORT}
 
 
 
