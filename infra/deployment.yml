@@ -31,11 +31,6 @@ spec:
                 secretKeyRef:
                   key: DB_AUTH_PASSWORD
                   name: db-auth
-            - name: MS_AUTH_SERVER_PORT
-              valueFrom:
-                secretKeyRef:
-                  key: SERVER_PORT
-                  name: db-auth
           name: ms-auth
           image: yunuskazimov94/ms-auth
           ports:

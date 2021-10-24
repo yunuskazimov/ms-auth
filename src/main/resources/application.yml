@@ -15,7 +15,7 @@ spring:
     enabled: true
 
 server:
-  port: ${SERVER_PORT}
+  port: 8092
 
 
 
