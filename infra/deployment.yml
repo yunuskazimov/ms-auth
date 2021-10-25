@@ -16,20 +16,20 @@ spec:
     spec:
       containers:
         - env:
-            - name: DB_MS_AUTH_URL
+            - name: DB_AUTH_URL
               valueFrom:
                 secretKeyRef:
-                  key: DB_AUTH_URL
+                  key: DB_MS_AUTH_URL
                   name: ms.auth.secrets
-            - name: DB_MS_AUTH_USERNAME
+            - name: DB_AUTH_USERNAME
               valueFrom:
                 secretKeyRef:
-                  key: DB_AUTH_USERNAME
+                  key: DB_MS_AUTH_USERNAME
                   name: ms.auth.secrets
-            - name: DB_MS_AUTH_PASSWORD
+            - name: DB_AUTH_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  key: DB_AUTH_PASSWORD
+                  key: DB_MS_AUTH_PASSWORD
                   name: ms.auth.secrets
           name: ms-auth
           image: yunuskazimov94/ms-auth

@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${DB_MS_AUTH_URL}
-    username: ${DB_MS_AUTH_USERNAME}
-    password: ${DB_MS_AUTH_PASSWORD}
+    url: ${DB_AUTH_URL}
+    username: ${DB_AUTH_USERNAME}
+    password: ${DB_AUTH_PASSWORD}
   jpa:
     generate-ddl: false
     hibernate:
