@@ -20,17 +20,17 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: DB_AUTH_URL
-                  name: db-auth
+                  name: ms.auth.secrets
             - name: DB_MS_AUTH_USERNAME
               valueFrom:
                 secretKeyRef:
                   key: DB_AUTH_USERNAME
-                  name: db-auth
+                  name: ms.auth.secrets
             - name: DB_MS_AUTH_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: DB_AUTH_PASSWORD
-                  name: db-auth
+                  name: ms.auth.secrets
           name: ms-auth
           image: yunuskazimov94/ms-auth
           ports:
