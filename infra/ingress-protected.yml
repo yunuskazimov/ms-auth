@@ -4,7 +4,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/auth-metod: POST
-    nginx.ingress.kubernetes.io/auth-url: http://ms-auth-loadbalancer.default.svc.cluster.local/auth/token/access
+    nginx.ingress.kubernetes.io/auth-url: http://ms-auth-loadbalancer.development.svc.cluster.local/auth/token/access
     nginx.ingress.kubernetes.io/auth-response-headers: User-Id
   name: ingress-protected
 spec:
@@ -12,11 +12,11 @@ spec:
     - host: bank.local
       http:
         paths:
-          - path: /int/auth
+          - path: /demo
             pathType: Prefix
             backend:
               service:
-                name: ms-auth-loadbalancer
+                name: ms-demo-loadbalancer
                 port:
                   number: 80
 
